@@ -1,82 +1,84 @@
-# Turborepo template
+# Zustand Sync Tabs [![Version](https://img.shields.io/npm/v/zustand-sync-tabs.svg?colorB=green)](https://www.npmjs.com/package/zustand-sync-tabs) [![Downloads](https://img.jsdelivr.com/img.shields.io/npm/dt/zustand-sync-tabs.svg)](https://www.npmjs.com/package/zustand-sync-tabs) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/zustand-sync-tabs)
 
-This is a template created based on official starter Turborepo.
+> Zustand middleware to easily sync Zustand state between tabs / windows / iframes (Same Origin)
 
-Simply click on Use this template button to use and customize this template for your next JavaSctipt / TypeScript / React / Vue / Next.js library or project.
+- ✅ 🐙 (465 Bytes gZiped) < 0.5 kB size cross-tab state sharing middleware for zustand
+- ✅ Full TypeScript Support
+- ✅ solid reliability in 1 writing and n reading tab-scenarios (with changing writing tab)
+- ✅ Fire and forget approach of always using the latest state. Perfect for single user systems
+- ✅ Sync Zustand state between multiple browsing contexts
+- ✅ Partial state sharing also supported
 
-## What's inside?
+> Checkout `[persistnsync](https://github.com/mayank1513/nextjs-themes/tree/main/packages/persistnsync#readme)` if you are looking for persisting state locally over reload/refresh or after closing site
 
-This Turborepo includes the following packages/apps:
+## Install
 
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
-
-Each package/example is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```bash
+$ pnpm add zustand-sync-tabs
+# or
+$ npm install zustand-sync-tabs
+# or
+$ yarn add zustand-sync-tabs
 ```
 
-### Develop
+## Usage
 
-To develop all apps and packages, run the following command:
+Simply add the middleware while creating the store and the rest will be taken care.
 
-```
-cd my-turborepo
-pnpm dev
-```
+```ts
+import { create } from "zustand";
+import { syncTabs } from "zustand-sync-tabs";
 
-### Remote Caching
+type MyStore = {
+	count: number;
+	set: (n: number) => void;
+};
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
+const useStore = create<MyStore>(
+	syncTabs(
+		set => ({
+			count: 0,
+			set: n => set({ count: n }),
+		}),
+		{ name: "my-channel" },
+	),
+);
 ```
 
-## Useful Links
+⚡🎉Boom! Just a couple of lines and your state perfectly syncs between tabs/windows and it is also persisted using `localStorage`!
 
-Learn more about the power of Turborepo:
+## Advanced - ignore / filter out fields based on regExp
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+In several cases you might want to exclude several fields from syncing. To support this scenario, we provide a mechanism to exclude fields based on regExp. Just pass `regExpToIgnore` (optional - default -> undefined) in options object.
 
-### 🤩 Don't forger to start this repo!
+```ts
+// to ignore fields containing a slug
+persistNSync(
+    set => ({
+      count: 0,
+      slugSomeState: 1,
+      slugSomeState2: 1,
+      set: n => set({ count: n }),
+    }),
+    { name: "my-channel", regExpToIgnore: /slug/ },
+    // or regExpToIgnore: new RegExp('slug')
+    // Use full power of regExp by adding `i` and `g` flags
+  ),
+```
 
-Want handson course for getting started with Turborepo? Check out [React and Next.js with TypeScript](https://www.udemy.com/course/react-and-next-js-with-typescript/?referralCode=7202184A1E57C3DCA8B2)
+For more details about regExp check out - [JS RegExp](https://www.w3schools.com/jsref/jsref_obj_regexp.asp)
+
+### Exact match
+
+For exactly matching a parameter/field use `/^your-field-name$/`. `^` forces match from the first caracter and similarly, `$` forces match until last character.
+
+### Ignore multiple fields with exact match
+
+use `regExpToIgnore: /^(field1|field2|field3)$/`
+
+## Roadmap
+
+- [ ] `regExpToInclude` -> once implemented, passing this parameter will sync only matching fields
 
 ## License
 

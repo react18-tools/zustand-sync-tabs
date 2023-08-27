@@ -37,3 +37,6 @@ yarn-error.log*
 
 # lock files
 *lock*
+
+# build files
+dist
