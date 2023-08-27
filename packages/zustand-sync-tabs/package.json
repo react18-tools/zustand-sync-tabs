@@ -1,0 +1,58 @@
+{
+	"name": "zustand-sync-tabs",
+	"author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
+	"version": "0.0.0",
+	"description": "Zustand middleware to easily sync Zustand state between tabs and windows",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mayank1513/zustand-sync-tabs.git"
+	},
+	"bugs": {
+		"url": "https://github.com/mayank1513/zustand-sync-tabs/issues"
+	},
+	"homepage": "https://github.com/mayank1513/zustand-sync-tabs#readme",
+	"sideEffects": false,
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc && node createPackageJSON.js",
+		"publish-package": "cp README.md dist && cd dist && npm publish && cd ..",
+		"pp2": "node seo.js && cd dist && npm publish && cd ..",
+		"pp3": "node seo1.js && cd dist && npm publish && cd ..",
+		"pp4": "node seo2.js && cd dist && npm publish && cd ..",
+		"p-gpr": "node createPackageJSON.js && cp README.md dist && node prepGPR.js && cd dist && npm publish && cd .."
+	},
+	"funding": {
+		"type": "github",
+		"url": "https://github.com/sponsors/mayank1513"
+	},
+	"devDependencies": {
+		"@types/node": "^20.4.5",
+		"typescript": "^5.1.6",
+		"zustand": "^4.4.1"
+	},
+	"peerDependencies": {
+		"zustand": "^3 || ^4"
+	},
+	"keywords": [
+		"web",
+		"api",
+		"broadcast",
+		"channel",
+		"sync-tabs",
+		"sync-windows",
+		"sync",
+		"broadcast-channel",
+		"hooks",
+		"react",
+		"react 18",
+		"zustand",
+		"middleware",
+		"state",
+		"optimized",
+		"tiny",
+		"typescript",
+		"javascript"
+	]
+}

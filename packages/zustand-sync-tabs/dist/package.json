@@ -1,0 +1,39 @@
+{
+  "name": "zustand-sync-tabs",
+  "author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
+  "version": "0.0.0",
+  "description": "Zustand middleware to easily sync Zustand state between tabs and windows",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": "https://github.com/mayank1513/nextjs-themes/tree/main/packages/zustand-sync",
+  "homepage": "https://github.com/mayank1513/nextjs-themes/tree/main/packages/zustand-sync#readme",
+  "sideEffects": false,
+  "license": "MIT",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/mayank1513"
+  },
+  "peerDependencies": {
+    "zustand": "^3 || ^4"
+  },
+  "keywords": [
+    "web",
+    "api",
+    "broadcast",
+    "channel",
+    "sync-tabs",
+    "sync-windows",
+    "sync",
+    "broadcast-channel",
+    "hooks",
+    "react",
+    "react 18",
+    "zustand",
+    "middleware",
+    "state",
+    "optimized",
+    "tiny",
+    "typescript",
+    "javascript"
+  ]
+}
