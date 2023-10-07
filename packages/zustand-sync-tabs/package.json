@@ -49,6 +49,8 @@
 		"optimized",
 		"tiny",
 		"typescript",
-		"javascript"
+		"javascript",
+		"zustand",
+		"mayank1513"
 	]
 }
