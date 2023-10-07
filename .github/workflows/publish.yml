@@ -1,0 +1,39 @@
+name: Publish to NPM
+
+# publish only when package json has changed - assuming version upgrade
+on:
+  push:
+    branches: [main]
+    paths: "packages/zustand-sync-tabs/package.json"
+
+jobs:
+  publish:
+    # Don't run just after creating repo from template
+    # Also avoid running after merging set-up PR
+    if: github.run_number > 2
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: write
+
+    defaults:
+      run:
+        working-directory: ./packages/zustand-sync-tabs
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org
+      - run: npm i -g pnpm && pnpm i
+        name: Install dependencies
+      - name: Publish to NPM
+        run: pnpm build && pnpm publish-package
+        # continue on error to publish scoped package name <- by default repo is setup for a non-scoped + scoped package name
+        continue-on-error: true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
