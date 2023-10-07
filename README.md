@@ -80,6 +80,12 @@ use `regExpToIgnore: /^(field1|field2|field3)$/`
 
 - [ ] `regExpToInclude` -> once implemented, passing this parameter will sync only matching fields
 
+### 🤩 Don't forger to start [this repo](https://github.com/mayank1513/turborepo-template)!
+
+Want handson course for getting started with Turborepo? Check out [React and Next.js with TypeScript](https://mayank-chaudhari.vercel.app/courses/react-and-next-js-with-typescript) and [The Game of Chess with Next.js, React and TypeScrypt](https://www.udemy.com/course/game-of-chess-with-nextjs-react-and-typescrypt/?referralCode=851A28F10B254A8523FE)
+
+![Alt](https://repobeats.axiom.co/api/embed/6b5fa6a5fbb6affafea042ba0f292ecf9388ef3c.svg "Repobeats analytics image")
+
 ## License
 
 Licensed as MIT open source.
