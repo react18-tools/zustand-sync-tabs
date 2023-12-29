@@ -7,6 +7,7 @@ export type SyncTabsOptionsType = {
 	include?: (string | RegExp)[];
 	exclude?: (string | RegExp)[];
 };
+
 type SyncTabsType = <T>(
 	f: StateCreator<T, [], []>,
 	options: SyncTabsOptionsType,
