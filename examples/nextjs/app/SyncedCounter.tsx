@@ -7,7 +7,13 @@ export default function SyncedCounter() {
 	return (
 		<div className={styles.card}>
 			<h2>Synced Counter:</h2>
-			<button onClick={() => setCount(count + 1)}>💖 {count}</button>
+			<button
+				onClick={() => {
+					setCount(count + 1);
+				}}
+				type="button">
+				💖 {count}
+			</button>
 		</div>
 	);
 }
