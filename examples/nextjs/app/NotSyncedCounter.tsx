@@ -7,7 +7,13 @@ export default function NotSyncedCounter() {
 	return (
 		<div className={styles.card}>
 			<h2>Not Synced Counter:</h2>
-			<button onClick={() => setCount2(_count + 1)}>🖤 {_count}</button>
+			<button
+				onClick={() => {
+					setCount2(_count + 1);
+				}}
+				type="button">
+				🖤 {_count}
+			</button>
 		</div>
 	);
 }

@@ -1,6 +1,6 @@
 {
 	"name": "nextjs",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"private": true,
 	"scripts": {
 		"dev": "next dev --port 3001",
@@ -9,19 +9,19 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
-		"next": "^13.4.19",
+		"next": "^14.0.4",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
-		"zustand-sync-tabs": "workspace:*",
-		"zustand": "^4.4.1"
+		"zustand": "^4.4.7",
+		"zustand-sync-tabs": "workspace:*"
 	},
 	"devDependencies": {
-		"@next/eslint-plugin-next": "^13.4.19",
-		"@types/node": "^17.0.12",
-		"@types/react": "^18.0.22",
-		"@types/react-dom": "^18.0.7",
+		"@next/eslint-plugin-next": "^14.0.4",
+		"@types/node": "^20.10.5",
+		"@types/react": "^18.2.46",
+		"@types/react-dom": "^18.2.18",
 		"eslint-config-custom": "workspace:*",
 		"tsconfig": "workspace:*",
-		"typescript": "^4.5.3"
+		"typescript": "^5.3.3"
 	}
 }

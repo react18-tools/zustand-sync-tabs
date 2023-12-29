@@ -29,8 +29,10 @@ jobs:
       - run: npm i -g pnpm && pnpm i
         name: Install dependencies
       - name: Publish to NPM
-        run: pnpm build && pnpm publish-package
-        # continue on error to publish scoped package name <- by default repo is setup for a non-scoped + scoped package name
-        continue-on-error: true
+        run: |
+          pnpm build && cd dist && npm publish
+          sed -i -e "s/.*name.*/\t\"name\": \"zustand-sync\",/" package.json && npm publish 
+          sed -i -e "s/.*name.*/\t\"name\": \"sync-zustand\",/" package.json && npm publish 
+          sed -i -e "s/.*name.*/\t\"name\": \"sync-tabs-zustand\",/" package.json && npm publish 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

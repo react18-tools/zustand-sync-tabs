@@ -1,32 +1,38 @@
 {
 	"name": "zustand-sync-tabs",
 	"author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Zustand middleware to easily sync Zustand state between tabs and windows",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/mayank1513/zustand-sync-tabs.git"
+		"url": "git+https://github.com/react18-tools/zustand-sync-tabs.git"
 	},
 	"bugs": {
-		"url": "https://github.com/mayank1513/zustand-sync-tabs/issues"
+		"url": "https://github.com/react18-tools/zustand-sync-tabs/issues"
 	},
-	"homepage": "https://github.com/mayank1513/zustand-sync-tabs#readme",
+	"homepage": "https://github.com/react18-tools/zustand-sync-tabs#readme",
 	"sideEffects": false,
 	"license": "MIT",
 	"scripts": {
-		"build": "tsc && node createPackageJSON.js",
-		"publish-package": "cp ../../README.md dist && cd dist && npm publish"
+		"build": "tsc && node touchup.js",
+		"test": "vitest run --coverage"
 	},
 	"funding": {
 		"type": "github",
 		"url": "https://github.com/sponsors/mayank1513"
 	},
 	"devDependencies": {
-		"@types/node": "^20.4.5",
-		"typescript": "^5.1.6",
-		"zustand": "^4.4.1"
+		"@testing-library/react": "^14.1.2",
+		"@types/node": "^20.10.5",
+		"@vitejs/plugin-react": "^4.2.1",
+		"@vitest/coverage-v8": "^1.1.0",
+		"jsdom": "^23.0.1",
+		"octokit": "^3.1.2",
+		"typescript": "^5.3.3",
+		"vitest": "^1.1.0",
+		"zustand": "^4.4.7"
 	},
 	"peerDependencies": {
 		"zustand": "^3 || ^4"
