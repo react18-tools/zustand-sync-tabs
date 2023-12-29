@@ -7,17 +7,16 @@
 	"types": "dist/index.d.ts",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/mayank1513/zustand-sync-tabs.git"
+		"url": "git+https://github.com/react18-tools/zustand-sync-tabs.git"
 	},
 	"bugs": {
-		"url": "https://github.com/mayank1513/zustand-sync-tabs/issues"
+		"url": "https://github.com/react18-tools/zustand-sync-tabs/issues"
 	},
-	"homepage": "https://github.com/mayank1513/zustand-sync-tabs#readme",
+	"homepage": "https://github.com/react18-tools/zustand-sync-tabs#readme",
 	"sideEffects": false,
 	"license": "MIT",
 	"scripts": {
 		"build": "tsc && node touchup.js",
-		"publish-package": "cd dist && npm publish",
 		"test": "vitest run --coverage"
 	},
 	"funding": {
