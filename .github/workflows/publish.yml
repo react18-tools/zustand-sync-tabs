@@ -12,6 +12,7 @@ jobs:
     permissions:
       packages: write
       contents: write
+      id-token: write
 
     defaults:
       run:
@@ -30,9 +31,9 @@ jobs:
         name: Install dependencies
       - name: Publish to NPM
         run: |
-          pnpm build && cd dist && npm publish
-          sed -i -e "s/.*name.*/\t\"name\": \"zustand-sync\",/" package.json && npm publish 
-          sed -i -e "s/.*name.*/\t\"name\": \"sync-zustand\",/" package.json && npm publish 
-          sed -i -e "s/.*name.*/\t\"name\": \"sync-tabs-zustand\",/" package.json && npm publish 
+          pnpm build && cd dist && npm publish --provenance --access public
+          sed -i -e "s/.*name.*/\t\"name\": \"zustand-sync\",/" package.json && npm publish --provenance --access public
+          sed -i -e "s/.*name.*/\t\"name\": \"sync-zustand\",/" package.json && npm publish --provenance --access public
+          sed -i -e "s/.*name.*/\t\"name\": \"sync-tabs-zustand\",/" package.json && npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
