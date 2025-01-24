@@ -1,5 +1,11 @@
 # zustand-sync-tabs
 
+## 0.2.2
+
+### Patch Changes
+
+- a594347: Update peerdeps
+
 ## 0.2.1
 
 ### Patch Changes
