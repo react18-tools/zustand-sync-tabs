@@ -1,5 +1,12 @@
 # nextjs
 
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies
+  - zustand-sync-tabs@0.2.3
+
 ## 1.0.4
 
 ### Patch Changes

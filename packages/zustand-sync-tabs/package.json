@@ -1,7 +1,7 @@
 {
 	"name": "zustand-sync-tabs",
 	"author": "Mayank Kumar Chaudhari <https://mayank-chaudhari.vercel.app>",
-	"version": "0.2.2",
+	"version": "0.2.3",
 	"description": "Zustand middleware to easily sync Zustand state between tabs and windows",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -35,7 +35,7 @@
 		"zustand": "^4.4.7"
 	},
 	"peerDependencies": {
-		"zustand": "3-5"
+		"zustand": ">=3.0.0 <6.0.0"
 	},
 	"keywords": [
 		"web",

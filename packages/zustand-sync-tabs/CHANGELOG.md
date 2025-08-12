@@ -1,5 +1,11 @@
 # zustand-sync-tabs
 
+## 0.2.3
+
+### Patch Changes
+
+- Fix peer dependency warning while installing, for strict package managers like pnpm.
+
 ## 0.2.2
 
 ### Patch Changes
